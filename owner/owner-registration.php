@@ -6,6 +6,7 @@ include('includes/dbconnection.php');
 if(isset($_POST['submit']))
   {
     $fname=$_POST['name'];
+    $lname=$_POST['lastname'];
     $mobno=$_POST['mobilnumber'];
     $email=$_POST['email'];
     $password=md5($_POST['password']);
@@ -13,17 +14,19 @@ if(isset($_POST['submit']))
     $ret=mysqli_query($con, "select Email from tblowner where Email='$email'");
     $result=mysqli_fetch_array($ret);
     if($result>0){
-$msg="This email or Contact Number already associated with another account";
+      $msg="This email or Contact Number already associated with another account";
     }
     else{
-    $query=mysqli_query($con, "insert into tblowner(FullName,LastName, MobileNumber, Email,  Password) value('$fname', '$mobno', '$email', '$password' )");
-    if ($query) {
-    $msg="You have successfully registered";
-  }
-  else
-    {
-      $msg="Something Went Wrong. Please try again";
-    }
+
+      $query=mysqli_query($con, "insert into tblowner(FullName,LastName, MobileNumber, Email,  Password) value('$fname', '$lname','$mobno', '$email', '$password' )");
+      //var_dump("insert into tblowner(FullName,LastName, MobileNumber, Email,  Password) value('$fname', '$lname','$mobno', '$email', '$password' )");
+      if ($query) {
+      $msg="You have successfully registered";
+      }
+      else
+        {
+          $msg="Something Went Wrong. Please try again";
+        }
 }
 }
 
