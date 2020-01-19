@@ -19,19 +19,20 @@ if(isset($_POST['submit']))
     $norooms=$_POST['norooms'];
     $address=$_POST['address'];
     $roomimages=$_POST['roomimages'];
-    $electricity=$_POST['electricity'];
+    // $electricity=$_POST['electricity'];
 
-    $parking=$_POST['parking'];
-    $ref=$_POST['refregerator'];
-    $furnished=$_POST['furnished'];
+    // $parking=$_POST['parking'];
+    // $ref=$_POST['refregerator'];
+    // $furnished=$_POST['furnished'];
     $ac=$_POST['ac'];
-    $balcony=$_POST['balcony'];
-    $table=$_POST['table'];
+    $msg=$_POST['msg'];
+    // $balcony=$_POST['balcony'];
+    // $table=$_POST['table'];
     $laundry=$_POST['laundry'];
     $security=$_POST['security'];
-     $breakfast=$_POST['breakfast'];
-      $lunch=$_POST['lunch'];
-     $dinner=$_POST['dinner'];
+    //  $breakfast=$_POST['breakfast'];
+    //   $lunch=$_POST['lunch'];
+    //  $dinner=$_POST['dinner'];
 
      $pgpic=$_FILES["roomimages"]["name"];
      $extension = substr($pgpic,strlen($pgpic)-4,strlen($pgpic));
@@ -47,7 +48,7 @@ else
 //r
 $roompic=md5($pgpic).$extension;
      move_uploaded_file($_FILES["roomimages"]["tmp_name"],"roomimages/".$roompic);
-    $query=mysqli_query($con, "insert into tblpg(OwnerID,StateName, CityName, PGTitle, Type, RPmonth,norooms,Address,Laundry,Security,ac,Image) value('$ownerid','$statename','$cityname','$pgname','$typepg','$rpmonth','$norooms','$address','$laundry','$security','$ac','$roompic')");
+    $query=mysqli_query($con, "insert into tblpg(OwnerID,StateName, CityName, PGTitle, Type, RPmonth,norooms,Address,Laundry,Security,ac,msg,Image) value('$ownerid','$statename','$cityname','$pgname','$typepg','$rpmonth','$norooms','$address','$laundry','$security','$ac','$msg','$roompic')");
     if ($query) {
     $msg="PG details has been submitted.";
   }
@@ -184,6 +185,12 @@ Both
                         <label class="col-sm-3 control-label">Address</label>
                         <div class="col-sm-6">
                             <textarea type="text" class="form-control" name="address" id="address" value="" required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Details</label>
+                        <div class="col-sm-6">
+                            <textarea type="text" class="form-control" name="msg" id="msg" value="" ></textarea>
                         </div>
                     </div>
                     <div class="form-group">
