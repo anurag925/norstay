@@ -47,7 +47,7 @@ else
 //r
 $roompic=md5($pgpic).$extension;
      move_uploaded_file($_FILES["roomimages"]["tmp_name"],"roomimages/".$roompic);
-    $query=mysqli_query($con, "insert into tblpg(OwnerID,StateName, CityName, PGTitle, Type, RPmonth,norooms,Address,Electricity,Parking,Refregerator,Furnished,AC,Balcony,StudyTable,Laundry,Security,MealsBreakfast,MealLunch,MealDinner,Image) value('$ownerid','$statename','$cityname','$pgname','$typepg','$rpmonth','$norooms','$address','$electricity','$parking','$ref','$furnished','$ac','$balcony','$table','$laundry','$security','$breakfast','$lunch','$dinner','$roompic')");
+    $query=mysqli_query($con, "insert into tblpg(OwnerID,StateName, CityName, PGTitle, Type, RPmonth,norooms,Address,Laundry,Security,ac,Image) value('$ownerid','$statename','$cityname','$pgname','$typepg','$rpmonth','$norooms','$address','$laundry','$security','$ac','$roompic')");
     if ($query) {
     $msg="PG details has been submitted.";
   }
@@ -108,7 +108,7 @@ $("#city").html(data);
         <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                List Your PG
+                List Your Room
             </header>
             <div class="panel-body">
                 <p style="font-size:16px; color:red" align="left"> <?php if($msg){
@@ -126,12 +126,20 @@ $("#city").html(data);
    <div class="form-group">
 <label class="col-sm-3 control-label">Type of PG:</label>
 <div class="col-sm-6">
-<input type="radio" name="typepg" id="typepg" value="Boys" checked="true">
+<input type="radio" name="typepg" id="typepg" value="Commercial" checked="true">
+Commercial
+<input type="radio" name="typepg" id="typepg" value="Boys">
  Boys
 <input type="radio" name="typepg" id="typepg" value="Girls">
 Girls
 <input type="radio" name="typepg" id="typepg" value="Both">
 Both
+<input type="radio" name="typepg" id="typepg" value="1BHK">
+1BHK
+<input type="radio" name="typepg" id="typepg" value="2BHK">
+2BHK
+<input type="radio" name="typepg" id="typepg" value="3BHK">
+3BHK
 </div>
                             </div>
                     <div class="form-group">
@@ -189,7 +197,7 @@ Both
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess" style="text-align: center; color: red">Facilities</label>
                         
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Electricity</label>
                         <div class="col-lg-6">
                             <label class="checkbox-inline">
@@ -199,8 +207,8 @@ Both
                                 <input type="radio" id="electricity" name="electricity" value="No"> No
                             </label>
                           </div>
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    <!-- <div class="form-group">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Parking</label>
                         <div class="col-lg-6">
                             <label class="checkbox-inline">
@@ -221,8 +229,8 @@ Both
                                 <input type="radio" id="refregerator" name="refregerator" value="No"> No
                             </label>
                           </div>
-                    </div>
-                     <div class="form-group">
+                    </div> -->
+                     <!-- <div class="form-group">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Full Furnished</label>
                         <div class="col-lg-6">
                             <label class="checkbox-inline">
@@ -232,7 +240,7 @@ Both
                                 <input type="radio" id="furnished" name="furnished" value="No"> No
                             </label>
                           </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">AC</label>
                         <div class="col-lg-6">
@@ -244,7 +252,7 @@ Both
                             </label>
                           </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Balcony</label>
                         <div class="col-lg-6">
                             <label class="checkbox-inline">
@@ -253,8 +261,8 @@ Both
                             <label class="checkbox-inline">
                                 <input type="radio" id="balcony" name="balcony" value="No"> No
                             </label>
-                          </div>
-                    </div>
+                          </div> -->
+                    <!-- </div>
                      <div class="form-group">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Table/Study Lamp</label>
                         <div class="col-lg-6">
@@ -265,8 +273,8 @@ Both
                                 <input type="radio" id="table" name="table" value="No"> No
                             </label>
                           </div>
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    <div class="form-group"> 
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Laundry</label>
                         <div class="col-lg-6">
                             <label class="checkbox-inline">
@@ -288,7 +296,7 @@ Both
                             </label>
                           </div>
                     </div>
-                    <hr />
+                    <!-- <hr />
                     <div class="form-group has-success">
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess" style="text-align: center; color: red">Meals</label>
                         
@@ -309,7 +317,7 @@ Both
                         </div>
                     </div>
 
-                    <hr />
+                    <hr /> -->
 <div class="form-group">
                                     <div class="col-lg-offset-3 col-lg-6">
                                         <button class="btn btn-primary" type="submit" name="submit">Submit</button>
