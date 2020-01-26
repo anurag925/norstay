@@ -49,21 +49,57 @@ include('includes/dbconnection.php');
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-6 col-xs-6">
-									<select name="location" class="form-control" required>
-<option value="">Choose State</option>
-<?php $query=mysqli_query($con,"select * from tblstate");
-while($row=mysqli_fetch_array($query))
-{
-?>    
-<option value="<?php echo $row['StateName'];?>"><?php echo $row['StateName'];?></option>
-<?php } ?> 
-									</select>
-								</div>
-								<div class="col-lg-3 col-md-6 col-xs-6">
-									<input type="text" name="pgname" class="app-select form-control" required>
-	
-								
-								</div>
+									<select name="location" id="location" class="form-control" required>
+                                        <option value="">Choose State</option>
+                                        <?php $query=mysqli_query($con,"select * from tblstate");
+                                        while($row=mysqli_fetch_array($query))
+                                        {
+                                        ?>
+                                        <option value="<?php echo $row['StateName'];?>"><?php echo $row['StateName'];?></option>
+
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+<!--                                <div class="col-lg-3 col-md-6 col-xs-6">-->
+<!---->
+<!--                                    <select name="norooms" id="norooms" class="form-control" required>-->
+<!--                                        <option value="">Number of Rooms</option>-->
+<!--                                        --><?php //$query=mysqli_query($con,"select distinct norooms from tblpg;");
+//                                        while($row=mysqli_fetch_array($query))
+//                                        {
+//                                            ?>
+<!--                                            <option value="--><?php //echo $row['norooms'];?><!--">--><?php //echo $row['norooms'];?><!--</option>-->
+<!---->
+<!--                                        --><?php //} ?>
+<!--                                    </select>-->
+<!--                                </div>-->
+
+                                        <div class="col-lg-3 col-md-6 col-xs-6">
+                                            <input type="text" name="pgname" class="app-select form-control" required>
+                                        </div>
+
+
+
+<!--                                <div class="col-lg-3 col-md-6 col-xs-6">-->
+<!---->
+<!--                                    <select name="type" id="type" class="form-control" required>-->
+<!--                                        <option value="">Type of Rooms</option>-->
+<!--                                        --><?php //$query=mysqli_query($con,"select distinct type from tblpg where type!=\"\";");
+//                                        while($row=mysqli_fetch_array($query))
+//                                        {
+//                                            ?>
+<!--                                            <option value="--><?php //echo $row['type'];?><!--">--><?php //echo $row['type'];?><!--</option>-->
+<!---->
+<!--                                        --><?php //} ?>
+<!--                                    </select>-->
+                                    <!--                                        <div class="col-lg-3 col-md-6 col-xs-6">-->
+                                    <!--                                            <input type="text" name="pgname" class="app-select form-control" required>-->
+                                    <!--                                        </div>-->
+
+
+                                </div>
+
 								<div class="col-lg-3 col-md-6 col-xs-6">
 	<button class="primary-btn">Search Properties<span class="lnr lnr-arrow-right"></span></button>
 								</div>

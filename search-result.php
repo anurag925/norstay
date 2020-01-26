@@ -60,7 +60,10 @@ include('includes/dbconnection.php');
 			<div class="row">
 				<?php
 $state=$_POST['location'];
+$room=$_POST['norooms'];
+$type=$_POST['type'];
 $pgname=$_POST['pgname'];
+var_dump($state,$room,$type,$pgname);
                     
 $ret=mysqli_query($con,"select * from tblpg where StateName='$state' and PGTitle like '%$pgname%'");
 $cnt=1;
