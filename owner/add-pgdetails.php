@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
     $cityname=$_POST['city'];
     
     $pgname=$_POST['pgname'];
-    $typepg=$_POST['typepg'];
+    $typepg[]=$_POST['typepg'];
     $rpmonth=$_POST['rpmonth'];
     $norooms=$_POST['norooms'];
     $address=$_POST['address'];
@@ -127,19 +127,19 @@ $("#city").html(data);
    <div class="form-group">
 <label class="col-sm-3 control-label">Type of PG:</label>
 <div class="col-sm-6">
-<input type="radio" name="typepg" id="typepg" value="Commercial" checked="true">
+<input type="checkbox" name="typepg" id="typepg" value="Commercial" checked="true">
 Commercial
-<input type="radio" name="typepg" id="typepg" value="Boys">
+<input type="checkbox" name="typepg" id="typepg" value="Boys">
  Boys
-<input type="radio" name="typepg" id="typepg" value="Girls">
+<input type="checkbox" name="typepg" id="typepg" value="Girls">
 Girls
-<input type="radio" name="typepg" id="typepg" value="Both">
+<input type="checkbox" name="typepg" id="typepg" value="Both">
 Both
-<input type="radio" name="typepg" id="typepg" value="1BHK">
+<input type="checkbox" name="typepg" id="typepg" value="1BHK">
 1BHK
-<input type="radio" name="typepg" id="typepg" value="2BHK">
+<input type="checkbox" name="typepg" id="typepg" value="2BHK">
 2BHK
-<input type="radio" name="typepg" id="typepg" value="3BHK">
+<input type="checkbox" name="typepg" id="typepg" value="3BHK">
 3BHK
 </div>
                             </div>
